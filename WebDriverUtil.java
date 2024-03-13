@@ -48,11 +48,11 @@ public class WebDriverUtil {
 		
 	}
 	
-	public File screenshot(WebDriver driver, String screenshotName) throws IOException {
+	public String screenshot(WebDriver driver, String screenshotName) throws IOException {
 		TakesScreenshot screenshot = (TakesScreenshot) driver;
 		File tempFile = screenshot.getScreenshotAs(OutputType.FILE);
 		File destinationFile = new File("./Screenshot/"+screenshotName+".png");
 		FileUtils.copyFile(tempFile, destinationFile);
-		return destinationFile;
+		return destinationFile.getAbsolutePath();
 	}
 }

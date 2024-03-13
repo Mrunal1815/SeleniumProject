@@ -15,8 +15,7 @@ import org.testng.annotations.BeforeSuite;
 
 public class BaseClass {
 	
-	public static WebDriver d;
-	
+	public static  WebDriver d;
 
 	WebDriverUtil driverUtil = new WebDriverUtil();
 	PropertyFileUtil fileUtil = new PropertyFileUtil();
@@ -31,9 +30,10 @@ public class BaseClass {
 		
 		String url = fileUtil.getDataFromPropertyFile("Url");
 		
-		WebDriver d = new ChromeDriver();
+	    d = new ChromeDriver();
 		driverUtil.maximize(d);                                                 //to maximize the window
 		driverUtil.implicitWait(d);												//to apply wait
+//		initialization is only for take screenshot
 		d.get(url);
 	}
 	
